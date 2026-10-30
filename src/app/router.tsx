@@ -28,8 +28,14 @@ const router = createBrowserRouter([
       path: "/result",
       element: <ResultPage />,
    },
-   { path: "/share", element: <SharePage /> },
-   { path: "/join", element: <JoinPage /> },
+   {
+       path: "/share",
+       element: <SharePage />
+   },
+   {
+       path: "/join",
+       element: <JoinPage />
+   },
 ]);
 
 function AppRouter() {

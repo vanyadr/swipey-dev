@@ -76,7 +76,6 @@ button:disabled {
 .intro,
 .workspace {
    position: relative;
-   max-width: 402px;
    margin: 0 auto;
    min-height: 100dvh;
    color: #73a66e;
@@ -118,14 +117,16 @@ button:disabled {
 }
 .workspace {
    background: linear-gradient(180deg, #b6b4b4 0, #f2f2f2 10%, #fff 24%);
+
 }
 .header {
    height: 139px;
    display: flex;
    align-items: center;
    justify-content: space-between;
-   padding: 0 21px;
-   padding-top: 22px;
+    padding: 22px 21px 0;
+    max-width: 500px;
+    margin: 0 auto;
 }
 .logo {
    font-size: 22px;
@@ -158,6 +159,8 @@ button:disabled {
 }
 .swipe-area {
    padding: 0 21px 24px;
+    max-width: 500px;
+    margin: 0 auto;
 }
 .progress-line {
    display: flex;

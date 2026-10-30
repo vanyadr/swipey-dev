@@ -6,7 +6,7 @@ import {
    freshSession,
    getName,
    saveSession,
-   setName,
+   setName as saveName,
 } from "../model";
 
 function JoinPage() {
@@ -14,18 +14,21 @@ function JoinPage() {
    const loc = useLocation();
    const encoded = new URLSearchParams(loc.hash.slice(1)).get("s");
    const invitation = encoded ? decodeInvitation(encoded) : null;
-   const [name, set] = useState(getName());
-   if (!invitation)
-      return (
-         <Intro>
-            <div className="center-block">
-               <h2>Приглашение не найдено</h2>
-               <button className="primary" onClick={() => nav("/qr")}>
-                  Сканировать QR
-               </button>
-            </div>
-         </Intro>
-      );
+   const [name, setName] = useState(getName());
+
+   if (!invitation) {
+       return (
+           <Intro>
+               <div className="center-block">
+                   <h2>Приглашение не найдено</h2>
+                   <button className="primary" onClick={() => nav("/qr")}>
+                       Сканировать QR
+                   </button>
+               </div>
+           </Intro>
+       );
+   }
+
    return (
       <Intro>
          <form
@@ -34,7 +37,7 @@ function JoinPage() {
                e.preventDefault();
                if (!name.trim()) return;
                const first = { name: invitation.name, likes: invitation.likes };
-               setName(name.trim());
+                saveName(name.trim());
                saveSession(freshSession(name.trim(), first));
                nav("/game");
             }}
@@ -46,7 +49,7 @@ function JoinPage() {
                maxLength={40}
                placeholder="Ваше имя"
                value={name}
-               onChange={(e) => set(e.target.value)}
+               onChange={(e) => setName(e.target.value)}
             />
             <button className="primary" disabled={!name.trim()}>
                Присоединиться

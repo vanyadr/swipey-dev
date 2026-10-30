@@ -6,9 +6,11 @@ import { freshSession, getName, saveSession } from "../model";
 function BeginPage() {
    const nav = useNavigate();
    const name = getName();
+
    useEffect(() => {
       if (!name) nav("/", { replace: true });
    }, [name, nav]);
+
    return (
       <Intro>
          <div className="start-actions">

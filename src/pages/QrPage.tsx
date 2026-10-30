@@ -10,6 +10,7 @@ function QrPage() {
    const video = useRef<HTMLVideoElement>(null);
    const [error, setError] = useState("");
    const [link, setLink] = useState("");
+
    useEffect(() => {
       let stopped = false;
       const scanner = new BrowserQRCodeReader();
@@ -48,6 +49,7 @@ function QrPage() {
          controls?.stop();
       };
    }, [nav]);
+
    function connect() {
       try {
          const url = new URL(link);
@@ -58,6 +60,7 @@ function QrPage() {
          setError("Проверьте ссылку приглашения");
       }
    }
+
    return (
       <Intro>
          <div className="scan-content">

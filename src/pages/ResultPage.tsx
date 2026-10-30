@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { HeartCrack, RotateCcw, Share2 } from "lucide-react";
+import { HeartCrack, RotateCcw } from "lucide-react";
 import { Header } from "../components/Header";
 import { Intro } from "../components/Intro";
 import { Poster } from "../components/Poster";
@@ -11,6 +11,7 @@ function ResultPage() {
    const s = readSession();
    const [tab, setTab] = useState<"matches" | "personal">("matches");
    const [person, setPerson] = useState<1 | 2>(2);
+
    if (!s || s.role !== 2 || !s.first || s.votes.length !== 15)
       return (
          <Intro>
@@ -22,6 +23,7 @@ function ResultPage() {
             </div>
          </Intro>
       );
+
    const mine = s.votes.filter((v) => v.liked).map((v) => v.id);
    const shown =
       tab === "matches"
@@ -29,6 +31,7 @@ function ResultPage() {
          : person === 1
            ? s.first.likes
            : mine;
+
    return (
       <main className="workspace">
          <Header name={s.name} />
@@ -89,16 +92,6 @@ function ResultPage() {
                   }}
                >
                   <RotateCcw size={16} /> Начать снова
-               </button>
-               <button
-                  onClick={async () => {
-                     const share = window.location.href;
-                     if (navigator.share)
-                        await navigator.share({ title: "Swipey", url: share });
-                     else await navigator.clipboard.writeText(share);
-                  }}
-               >
-                  <Share2 size={16} /> Поделиться
                </button>
             </div>
          </section>

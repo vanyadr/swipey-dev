@@ -1,7 +1,7 @@
 import { Check } from "lucide-react";
-import { GradientBackground } from "../components/GradientBackground";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Intro } from "../components/Intro";
 
 function HomePage() {
    const [name, setName] = useState(localStorage.getItem("name") || "");
@@ -14,8 +14,7 @@ function HomePage() {
    };
 
    return (
-      <>
-         <GradientBackground />
+      <Intro>
          <main className="main">
             <h1 className="main__title">Swipey</h1>
             <form
@@ -34,18 +33,12 @@ function HomePage() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                />
-               <button
-                  className="main__button"
-                  type="submit"
-                  aria-label="Сохранить имя"
-                  disabled={!name.trim()}
-               >
+               <button className="main__button" type="submit" aria-label="Сохранить имя" disabled={!name.trim()}>
                   <Check />
                </button>
             </form>
-            <p className="main__description">Выбери кино или сериал на вечер</p>
          </main>
-      </>
+      </Intro>
    );
 }
 
