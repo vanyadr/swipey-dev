@@ -117,16 +117,15 @@ button:disabled {
 }
 .workspace {
    background: linear-gradient(180deg, #b6b4b4 0, #f2f2f2 10%, #fff 24%);
-
 }
 .header {
    height: 139px;
    display: flex;
    align-items: center;
    justify-content: space-between;
-    padding: 22px 21px 0;
-    max-width: 500px;
-    margin: 0 auto;
+   padding: 22px 21px 0;
+   max-width: 500px;
+   margin: 0 auto;
 }
 .logo {
    font-size: 22px;
@@ -159,8 +158,8 @@ button:disabled {
 }
 .swipe-area {
    padding: 0 21px 24px;
-    max-width: 500px;
-    margin: 0 auto;
+   max-width: 500px;
+   margin: 0 auto;
 }
 .progress-line {
    display: flex;
@@ -216,11 +215,7 @@ button:disabled {
    text-align: center;
    color: #fff;
    background:
-      radial-gradient(
-         circle at 48% 35%,
-         rgba(255, 255, 255, 0.24),
-         transparent 40%
-      ),
+      radial-gradient(circle at 48% 35%, rgba(255, 255, 255, 0.24), transparent 40%),
       linear-gradient(130deg, #223e4d, #639278 55%, #1f4a48);
 }
 .poster__fallback strong {
@@ -284,13 +279,7 @@ button:disabled {
 .card-shade {
    position: absolute;
    inset: 0;
-   background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.55),
-      transparent 23%,
-      transparent 72%,
-      rgba(0, 0, 0, 0.75)
-   );
+   background: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 23%, transparent 72%, rgba(0, 0, 0, 0.75));
 }
 .card-label {
    position: absolute;

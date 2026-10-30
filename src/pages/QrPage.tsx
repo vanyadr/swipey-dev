@@ -17,30 +17,23 @@ function QrPage() {
       let controls: { stop: () => void } | undefined;
       async function go() {
          try {
-            controls = await scanner.decodeFromVideoDevice(
-               undefined,
-               video.current!,
-               (result) => {
-                  if (stopped || !result) return;
-                  const value = result.getText();
-                  try {
-                     const parsed = new URL(value);
-                     const encoded = new URLSearchParams(
-                        parsed.hash.slice(1),
-                     ).get("s");
-                     if (!encoded || !decodeInvitation(encoded)) throw Error();
-                     stopped = true;
-                     controls?.stop();
-                     nav("/join#s=" + encoded);
-                  } catch {
-                     setError("QR-код не содержит приглашение Swipey");
-                  }
-               },
-            );
+            controls = await scanner.decodeFromVideoDevice(undefined, video.current!, (result) => {
+               if (stopped || !result) return;
+               const value = result.getText();
+               try {
+                  const parsed = new URL(value);
+                  const encoded = new URLSearchParams(parsed.hash.slice(1)).get("s");
+                  if (!encoded || !decodeInvitation(encoded)) throw Error();
+                  stopped = true;
+                  controls?.stop();
+                  nav("/join#s=" + encoded);
+               } catch {
+                  setError("QR-код не содержит приглашение Swipey");
+               }
+            });
             if (stopped) controls.stop();
          } catch {
-            if (!stopped)
-               setError("Нет доступа к камере. Вставьте ссылку вручную.");
+            if (!stopped) setError("Нет доступа к камере. Вставьте ссылку вручную.");
          }
       }
       go();

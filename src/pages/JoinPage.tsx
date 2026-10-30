@@ -1,13 +1,7 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Intro } from "../components/Intro";
-import {
-   decodeInvitation,
-   freshSession,
-   getName,
-   saveSession,
-   setName as saveName,
-} from "../model";
+import { decodeInvitation, freshSession, getName, saveSession, setName as saveName } from "../model";
 
 function JoinPage() {
    const nav = useNavigate();
@@ -17,16 +11,16 @@ function JoinPage() {
    const [name, setName] = useState(getName());
 
    if (!invitation) {
-       return (
-           <Intro>
-               <div className="center-block">
-                   <h2>Приглашение не найдено</h2>
-                   <button className="primary" onClick={() => nav("/qr")}>
-                       Сканировать QR
-                   </button>
-               </div>
-           </Intro>
-       );
+      return (
+         <Intro>
+            <div className="center-block">
+               <h2>Приглашение не найдено</h2>
+               <button className="primary" onClick={() => nav("/qr")}>
+                  Сканировать QR
+               </button>
+            </div>
+         </Intro>
+      );
    }
 
    return (
@@ -37,7 +31,7 @@ function JoinPage() {
                e.preventDefault();
                if (!name.trim()) return;
                const first = { name: invitation.name, likes: invitation.likes };
-                saveName(name.trim());
+               saveName(name.trim());
                saveSession(freshSession(name.trim(), first));
                nav("/game");
             }}

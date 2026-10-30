@@ -11,8 +11,7 @@ function SharePage() {
    const [copied, setCopied] = useState(false);
 
    useEffect(() => {
-      if (!s || s.role !== 1 || s.votes.length !== 15)
-         nav("/begin", { replace: true });
+      if (!s || s.role !== 1 || s.votes.length !== 15) nav("/begin", { replace: true });
    }, [s, nav]);
 
    if (!s || s.role !== 1) return null;
@@ -24,8 +23,8 @@ function SharePage() {
       nav("/join#s=" + encodeInvitation(inv));
    }
    async function copy() {
-       await navigator.clipboard.writeText(link);
-       setCopied(true);
+      await navigator.clipboard.writeText(link);
+      setCopied(true);
    }
 
    return (
@@ -36,10 +35,7 @@ function SharePage() {
                <QRCodeSVG value={link} size={206} marginSize={1} />
             </div>
             <p>Передайте ссылку второму игроку</p>
-            <button
-               className="outline-button"
-               onClick={copy}
-            >
+            <button className="outline-button" onClick={copy}>
                <Copy size={18} />
                {copied ? "Скопировано" : "Скопировать ссылку"}
             </button>

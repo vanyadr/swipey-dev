@@ -25,43 +25,26 @@ function ResultPage() {
       );
 
    const mine = s.votes.filter((v) => v.liked).map((v) => v.id);
-   const shown =
-      tab === "matches"
-         ? matches(s.first.likes, mine)
-         : person === 1
-           ? s.first.likes
-           : mine;
+   const shown = tab === "matches" ? matches(s.first.likes, mine) : person === 1 ? s.first.likes : mine;
 
    return (
       <main className="workspace">
          <Header name={s.name} />
          <section className="result-area">
             <nav className="result-tabs">
-               <button
-                  className={tab === "matches" ? "active" : ""}
-                  onClick={() => setTab("matches")}
-               >
+               <button className={tab === "matches" ? "active" : ""} onClick={() => setTab("matches")}>
                   Совпадения
                </button>
-               <button
-                  className={tab === "personal" ? "active" : ""}
-                  onClick={() => setTab("personal")}
-               >
+               <button className={tab === "personal" ? "active" : ""} onClick={() => setTab("personal")}>
                   Мой результат
                </button>
             </nav>
             {tab === "personal" && (
                <div className="person-tabs">
-                  <button
-                     className={person === 1 ? "selected" : ""}
-                     onClick={() => setPerson(1)}
-                  >
+                  <button className={person === 1 ? "selected" : ""} onClick={() => setPerson(1)}>
                      {s.first.name}
                   </button>
-                  <button
-                     className={person === 2 ? "selected" : ""}
-                     onClick={() => setPerson(2)}
-                  >
+                  <button className={person === 2 ? "selected" : ""} onClick={() => setPerson(2)}>
                      {s.name}
                   </button>
                </div>
