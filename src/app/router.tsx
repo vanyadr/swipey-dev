@@ -1,5 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { HomePage } from "../pages/HomePage";
+import { GamePage } from "../pages/GamePage";
+import { SharePage } from "../pages/SharePage";
+import { JoinPage } from "../pages/JoinPage";
+import { ResultPage } from "../pages/ResultPage";
 
 const router = createBrowserRouter([
    {
@@ -7,20 +11,20 @@ const router = createBrowserRouter([
       element: <HomePage />,
    },
    {
-      path: "/begin",
-      element: <div>2</div>,
-   },
-   {
-      path: "/qr",
-      element: <div>3</div>,
+      path: "/share",
+      element: <SharePage />,
    },
    {
       path: "/game",
-      element: <div>4</div>,
+      element: <GamePage />,
    },
    {
       path: "/result",
-      element: <div>5</div>,
+      element: <ResultPage />,
+   },
+   {
+      path: "/join",
+      element: <JoinPage />,
    },
 ]);
 
