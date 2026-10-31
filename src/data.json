@@ -1,5 +1,5 @@
 [
-   { "id": "m01", "title": "Шрек 2", "year": 2004, "genre": "Анимация · Комедия", "poster": "/posters/shrek2.png" },
+   { "id": "m01", "title": "Шрек 2", "year": 2004, "genre": "Анимация · Комедия", "poster": "/shrek2.png" },
    { "id": "m02", "title": "Интерстеллар", "year": 2014, "genre": "Фантастика · Драма", "poster": "" },
    { "id": "m03", "title": "Начало", "year": 2010, "genre": "Фантастика · Триллер", "poster": "" },
    { "id": "m04", "title": "Душа", "year": 2020, "genre": "Анимация · Семейный", "poster": "" },
