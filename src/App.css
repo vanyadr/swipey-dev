@@ -48,14 +48,17 @@
 
 .main__input {
    flex: 1;
+   min-width: 0;
    background-color: transparent;
    padding-left: 15px;
 }
 
 .main__button {
-   height: 100%;
-   display: block;
-   aspect-ratio: 1/1;
+   flex-shrink: 0;
+   width: 32px;
+   height: 32px;
+   display: grid;
+   place-items: center;
    border-radius: 50%;
    background-color: white;
    color: #73a66e;
